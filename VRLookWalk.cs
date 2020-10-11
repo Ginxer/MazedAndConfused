@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,7 +32,14 @@ public class VRLookWalk : MonoBehaviour
         }
         else
         {
-            moveForward = false;
+             if (Input.GetKey("up"))
+            {
+                moveForward = true;
+            }
+            else
+            {
+                moveForward = false;
+            } 
         }
 
         if (moveForward )
@@ -41,6 +48,18 @@ public class VRLookWalk : MonoBehaviour
 
             cc.SimpleMove(forward * speed);
         }
+
+        if (Input.GetKey("left"))
+        {
+            print("left key was pressed");
+            transform.Rotate(0, -5f, 0);
+        }
+        if (Input.GetKey("right"))
+        {
+            print("right key was pressed");
+            transform.Rotate(0, 5f, 0);
+        }
+        
     }
 
     /*
